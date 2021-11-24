@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles } from '@mui/styles';
 import image1 from '../asset/images/image1.jpg'
+import image2 from '../asset/images/image2.jpg'
 const useStyles = makeStyles((theme)=>({
-    hero:{
+    defaultHero:{
         backgroundImage:`url(${image1})`,
+    },
+    roomsHero:{
+        backgroundImage:`url(${image2})`,
+    },
+    default:{
         display: "flex",
         alignitems: "center",
         justifyContent: "center",
@@ -13,13 +19,13 @@ const useStyles = makeStyles((theme)=>({
        backgroundSize:"cover",
     }
 }));
-function Hero({children}) {
+function Hero({children,hero}) {
     const classes = useStyles();
+   
     return (
-        <div className={classes.hero}>
+        <div className={`${classes.default} ${classes[hero]}`}>
             {children}
         </div>
     )
 }
-
 export default Hero
