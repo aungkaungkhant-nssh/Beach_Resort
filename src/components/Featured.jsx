@@ -1,8 +1,9 @@
 import { Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import data from '../data'
 import Room from './Room'
 import { makeStyles } from '@mui/styles';
+import { RoomContext } from '../context';
 const useStyles = makeStyles((theme)=>({
    featured:{
        textAlign:"center",
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme)=>({
 }));
 function Featured() {
     const classes=useStyles()
-    let featuredRoom=data.filter((d)=>(d.fields.featured))
+    const {rooms,loading}=useContext(RoomContext)
+    let featuredRoom=rooms.filter((d)=>(d.fields.featured))
     featuredRoom=featuredRoom.map((r)=>(<Room room={r.fields}/>))
     return (
         <div className={classes.featured}>
@@ -27,7 +29,7 @@ function Featured() {
                 Featured
              </Typography>
              <div className={classes.featuredRoomCenter}>
-                    {featuredRoom}
+                    {!loading&&featuredRoom}
              </div>
         </div>
     )
