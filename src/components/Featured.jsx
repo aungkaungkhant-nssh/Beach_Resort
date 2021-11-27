@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import data from '../data'
 import Room from './Room'
 import { makeStyles } from '@mui/styles';
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme)=>({
 }));
 function Featured() {
     const classes=useStyles()
-    const {rooms,loading}=useContext(RoomContext)
+    const {rooms,singleRoom,loading,getRooms}=useContext(RoomContext)
     let featuredRoom=rooms.filter((d)=>(d.fields.featured))
     featuredRoom=featuredRoom.map((r)=>(<Room room={r.fields}/>))
     return (

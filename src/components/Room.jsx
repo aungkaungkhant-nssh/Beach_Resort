@@ -73,7 +73,7 @@ function Room({room}) {
     return (
         <article className={classes.room}>
             <div className={classes.imageContainer}>
-                 <img src={image}/>
+                 <img src={image[0]}/>
                 <div className={classes.priceTop}>
                     <h6>${price}</h6>
                     <p>per night</p>
