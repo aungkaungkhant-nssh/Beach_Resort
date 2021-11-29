@@ -10,6 +10,7 @@ import customtheme from './custom/customtheme';
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Rooms from './pages/Rooms'
+import SingleRoom from './pages/SingleRoom';
 function App() {
   const theme=customtheme();
   return (
@@ -18,7 +19,8 @@ function App() {
            <Navbar />
            <Routes>
                  <Route exact path="/" element={<Home />} />
-                 <Route  path="/rooms" element={<Rooms />} />
+                 <Route exact path="/rooms" element={<Rooms />} />
+                 <Route exact path="/rooms/:slug" element={<SingleRoom />} />
                  <Route path="*"  element={<NotFound />}></Route>
            </Routes>
       </ThemeProvider>
