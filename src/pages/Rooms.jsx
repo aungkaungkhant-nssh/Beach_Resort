@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import {Link} from 'react-router-dom'
 import { makeStyles } from '@mui/styles';
+import RoomContainer from '../components/RoomContainer';
 ;
 const useStyles = makeStyles((theme)=>({
         bannerLink:{
@@ -12,11 +13,14 @@ const useStyles = makeStyles((theme)=>({
 function Rooms() {
     const classes=useStyles()
     return (
-        <Hero hero="roomsHero">
-            <Banner title="our rooms">
-                <Link to="/" className={classes.bannerLink}>Home Page</Link>
-            </Banner>
-        </Hero>
+        <>
+            <Hero hero="roomsHero">
+                <Banner title="our rooms">
+                    <Link to="/" className={classes.bannerLink}>Home Page</Link>
+                </Banner>
+            </Hero>
+            <RoomContainer />
+        </>
     )
 }
 
